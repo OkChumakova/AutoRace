@@ -51,13 +51,8 @@ public class Car extends Thread implements Runnable, Comparable <Car> {
     public double getDistance() {
         return distance;
     }
-<<<<<<< HEAD
 
 
-=======
-    
-//  the method is overriden in so way that Cars to be sorted in desc order
->>>>>>> 3e2071860177da208105f8437dea25f7ad270246
     public int compareTo(Car car) {
         if (this.getDistance() == car.getDistance()) {
             return 0;
