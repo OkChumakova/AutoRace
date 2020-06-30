@@ -32,7 +32,6 @@ public class Car extends Thread implements Runnable, Comparable <Car> {
         for (int i = 0; i < 20; i++) {
             calculateDistance();
 
-//           System.out.println(this.model + " " + this.getDistance() + " " + this.speed);
             synchronized (Race.intermediateResult) {
                 Race.intermediateResult.add(this);
                 if (Race.intermediateResult.size() == 10) {
@@ -52,7 +51,8 @@ public class Car extends Thread implements Runnable, Comparable <Car> {
     public double getDistance() {
         return distance;
     }
-
+    
+//  the method is overriden in so way that Cars to be sorted in desc order
     public int compareTo(Car car) {
         if (this.getDistance() == car.getDistance()) {
             return 0;
