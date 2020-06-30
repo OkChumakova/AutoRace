@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.concurrent.*;
 
+// Speed of the car is picked up randomly (from 100 to 200) and I treat this speed as km's per hour. Thereby to get the distance after 1 second I divide the speed by 3600
 
 public class Car extends Thread implements Runnable, Comparable <Car> {
 
