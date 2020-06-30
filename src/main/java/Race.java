@@ -10,7 +10,7 @@ public class Race{
 
         // cars-threads are created
         for(int i = 0; i <10; i++ ){
-            listOfCompetitors.add(new Car ("Car" + i));
+            listOfCompetitors.add(new Car ("Car_" + i));
         }
 
 

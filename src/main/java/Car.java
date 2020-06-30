@@ -4,17 +4,17 @@ import java.util.concurrent.*;
 
 public class Car extends Thread implements Runnable, Comparable <Car> {
 
-    public String getModel() {
-        return model;
+    public String getCarName() {
+        return carName;
     }
 
-    private String model;
+    private String carName;
     private double speed;
     private double distance;
 
 
-    public Car(String model) {
-        this.model = model;
+    public Car(String name) {
+        this.carName = name;
         this.distance = 0;
         this.speed = 0;
     }
@@ -32,7 +32,6 @@ public class Car extends Thread implements Runnable, Comparable <Car> {
         for (int i = 0; i < 20; i++) {
             calculateDistance();
 
-//           System.out.println(this.model + " " + this.getDistance() + " " + this.speed);
             synchronized (Race.intermediateResult) {
                 Race.intermediateResult.add(this);
                 if (Race.intermediateResult.size() == 10) {
@@ -53,6 +52,7 @@ public class Car extends Thread implements Runnable, Comparable <Car> {
         return distance;
     }
 
+
     public int compareTo(Car car) {
         if (this.getDistance() == car.getDistance()) {
             return 0;
@@ -65,9 +65,9 @@ public class Car extends Thread implements Runnable, Comparable <Car> {
 
     public static void displayTopCars(List<Car> listOfCars) {
         Collections.sort(listOfCars);
-        System.out.println("\nTOP 3 CARS:\n\t3d: " + listOfCars.get(2).getModel() + " " + listOfCars.get(2).getDistance() + " with the speed " + listOfCars.get(2).getSpeed() +
-                "\n\t2d: " + listOfCars.get(1).getModel() + " " + listOfCars.get(1).getDistance() + " with the speed " + listOfCars.get(1).getSpeed() +
-                "\n\t1st: " + listOfCars.get(0).getModel() + " " + listOfCars.get(0).getDistance() + " with the speed " + listOfCars.get(0).getSpeed());
+        System.out.println("\nTOP 3 CARS:\n\t3d: " + listOfCars.get(2).getCarName() + " with distance " + listOfCars.get(2).getDistance() + " and the speed " + listOfCars.get(2).getSpeed() +
+                "\n\t2d: " + listOfCars.get(1).getCarName() + " with the distance " + listOfCars.get(1).getDistance() + " and the speed " + listOfCars.get(1).getSpeed() +
+                "\n\t1st: " + listOfCars.get(0).getCarName() + " with the distance " + listOfCars.get(0).getDistance() + " and the speed " + listOfCars.get(0).getSpeed());
     }
 
     public void calculateDistance() {
